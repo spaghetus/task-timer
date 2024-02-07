@@ -1,0 +1,26 @@
+[package]
+name = "task-timer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+chrono = { version = "0.4.33", features = ["serde"] }
+chumsky = "0.9.3"
+clap = { version = "4.4.18", features = ["derive", "env"] }
+color-eyre = "0.6.2"
+dirs = "5.0.1"
+eframe = "0.26.0"
+figment = { version = "0.10.14", features = ["toml", "env"] }
+ics = "0.5.8"
+minicaldav = { version = "0.8.0", features = ["serde"] }
+notify-rust = "4.10.0"
+pretty-duration = "0.1.1"
+rand = "0.8.5"
+serde = { version = "1.0.196", features = ["derive"] }
+strum = { version = "0.26.1", features = ["derive"] }
+tokio = { version = "1.36.0", features = ["full"] }
+ureq = "2.7.1"
+url = "2.5.0"
+winit = { version = "0.29.10", default-features = false, features = ["rwh_06", "x11", "wayland", "wayland-csd-adwaita"] }
