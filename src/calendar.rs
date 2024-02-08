@@ -120,10 +120,10 @@ impl Calendar {
 					event
 						.properties_todo()
 						.into_iter()
-						.map(|(k, v)| (k.to_lowercase(), v.to_lowercase()))
+						.map(|(k, v)| (k.to_lowercase(), v.to_string()))
 						.collect::<HashMap<_, _>>()
 				})
-				.filter(|event| event.get("status").map(|s| s.as_str()) != Some("completed"))
+				.filter(|event| event.get("status").map(|s| s.as_str()) != Some("COMPLETED"))
 				.filter(|event| event.get("completed").is_none())
 				.filter(|event| event.get("percent-complete").map(|s| s.as_str()) != Some("100"))
 				.filter(|event| event.get("rrule").is_none())
