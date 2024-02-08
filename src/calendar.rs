@@ -127,7 +127,6 @@ impl Calendar {
 				.filter(|event| event.get("completed").is_none())
 				.filter(|event| event.get("percent-complete").map(|s| s.as_str()) != Some("100"))
 				.filter(|event| event.get("rrule").is_none())
-				.inspect(|el| eprintln!("{el:#?}"))
 				.map(|properties| Event {
 					uid: properties
 						.get("uid")
@@ -135,7 +134,7 @@ impl Calendar {
 						.unwrap_or_else(|| "???".to_string()),
 					date_stamp: properties
 						.get("dtstamp")
-						.and_then(|dtstamp| dbg!(parse_ical_date(dtstamp)).ok())
+						.and_then(|dtstamp| parse_ical_date(dtstamp).ok())
 						.unwrap_or_default(),
 					summary: properties
 						.get("summary")
